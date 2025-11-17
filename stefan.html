@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Soccer Game</title>
+  <style>
+    body { text-align: center; font-family: Arial; background: #cce6ff; }
+    #field { width: 500px; height: 300px; margin: 50px auto; position: relative; background: green; border: 2px solid black; }
+    #ball { width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; top: 140px; left: 240px; }
+  </style>
+</head>
+<body>
+  <h1>Soccer Game</h1>
+  <p>Use arrow keys to move the ball!</p>
+  <div id="field">
+    <div id="ball"></div>
+  </div>
+
+  <script>
+    const ball = document.getElementById("ball");
+    let topPos = 140;
+    let leftPos = 240;
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "ArrowUp" && topPos > 0) topPos -= 10;
+      if(e.key === "ArrowDown" && topPos < 280) topPos += 10;
+      if(e.key === "ArrowLeft" && leftPos > 0) leftPos -= 10;
+      if(e.key === "ArrowRight" && leftPos < 480) leftPos += 10;
+      ball.style.top = topPos + "px";
+      ball.style.left = leftPos + "px";
+    });
+  </script>
+</body>
+</html>
